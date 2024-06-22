@@ -14,8 +14,8 @@ import joblib
 import pandas as pd
 
 #load the model
-model = joblib.load("C:/Users/austi/Intro to AI Codes and dataset/main_final_model.pkl")
-scaler = joblib.load("C:/Users/austi/Intro to AI Codes and dataset/scaler.pkl")
+model = joblib.load("main_final_model.pkl")
+scaler = joblib.load("scaler.pkl")
 
 def usersinput():
     attribute1 = st.number_input("Enter the movement reactions")

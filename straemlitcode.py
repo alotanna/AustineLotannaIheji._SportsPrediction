@@ -14,7 +14,7 @@ import joblib
 import pandas as pd
 
 #load the model
-model = joblib.load("C:/Users/austi/Intro to AI Codes and dataset/final_model.pkl")
+model = joblib.load("C:/Users/austi/Intro to AI Codes and dataset/main_final_model.pkl")
 scaler = joblib.load("C:/Users/austi/Intro to AI Codes and dataset/scaler.pkl")
 
 def usersinput():

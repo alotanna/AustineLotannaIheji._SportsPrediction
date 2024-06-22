@@ -38,7 +38,7 @@ def usersinput():
         'power_shot_power': attribute4,
         'value_eur': attribute5,
         'passing': attribute6,
-        'mentality_vision': attribute7
+        'mentality_vision': attribute7,
         'international_reputation' : attribute8,
         'skill_long_passing': attribute9,
         'power_shot_power': attribute10,

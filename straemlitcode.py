@@ -27,7 +27,7 @@ def usersinput():
     attribute7 = st.number_input("Enter the mentality vision")
     attribute8 = st.number_input("Enter the international reputation")
     attribute9 = st.number_input("Enter the long passing")
-    attribute10 = st.number_input("Enter the shot power")
+    attribute10 = st.number_input("Enter the shot powe_r")
     attribute11 = st.number_input("Enter the physic")
     attribute12 = st.number_input("Enter the ball control")
 

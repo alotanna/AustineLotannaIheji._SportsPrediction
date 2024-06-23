@@ -24,64 +24,55 @@ st.markdown(
     <style>
     /* Main layout styling */
     .main {
-        background-color: #2c3e50; /* Dark background */
-        color: #ecf0f1; /* White text */
+        background-color: #f5f7fa;
         font-family: 'Arial', sans-serif;
     }
     /* Sidebar styling */
     .sidebar .sidebar-content {
-        background-color: #1a252f;
-        color: #ecf0f1; /* White text */
+        background-color: #343a40;
+        color: #ffffff;
     }
     .sidebar .sidebar-content h2 {
-        color: #ffcc00; /* Accent color */
+        color: #ffcc00;
     }
     /* Input elements styling */
     .stNumberInput>div>input,
     .stSlider>div>div>div>div,
     .stTextInput>div>input {
         border-radius: 5px;
-        background-color: #34495e;
-        color: #ecf0f1; /* White text */
+        background-color: #e9ecef;
+        color: #495057;
     }
     /* Button styling */
     .stButton>button {
-        background-color: #3498db;
-        color: #ecf0f1; /* White text */
+        background-color: #007bff;
+        color: white;
         border-radius: 5px;
         border: none;
     }
     .stButton>button:hover {
-        background-color: #2980b9;
+        background-color: #0056b3;
     }
     /* Table styling */
     .css-1d391kg {
         border-radius: 10px;
         overflow: hidden;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
     .css-1d391kg table {
         width: 100%;
         text-align: center;
-        background-color: #34495e;
-        color: #ecf0f1; /* White text */
-    }
-    .css-1d391kg thead th {
-        background-color: #1a252f;
-        color: #ecf0f1; /* White text */
-    }
-    .css-1d391kg tbody tr:hover {
-        background-color: #2c3e50;
+        background-color: #ffffff;
     }
     /* Prediction output styling */
     .prediction-box {
-        background-color: #3498db;
-        color: #ecf0f1; /* White text */
+        background-color: #007bff;
+        color: #ffffff;
         padding: 20px;
         border-radius: 10px;
         text-align: center;
         margin-top: 20px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     }
     .prediction-box h1 {
         margin: 0;
@@ -91,10 +82,10 @@ st.markdown(
         text-align: center;
         padding: 2rem;
         font-size: 14px;
-        color: #ecf0f1; /* White text */
+        color: #868e96;
     }
     .stSlider>div>div>div>div {
-        background-color: #3498db;
+    background-color: #007bff;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -152,7 +143,7 @@ userinput = usersinput()
 if userinput is not None:
     st.subheader('User Input Parameters')
     st.dataframe(userinput.style.set_table_styles(
-        [{'selector': 'thead th', 'props': [('background-color', '#1a252f'), ('color', 'white')]}]
+        [{'selector': 'thead th', 'props': [('background-color', '#343a40'), ('color', 'white')]}]
     ).highlight_max(axis=0, color='#d9edf7'))
 
     try:

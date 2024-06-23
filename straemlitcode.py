@@ -27,9 +27,8 @@ def usersinput():
     attribute7 = st.number_input("Enter the mentality vision")
     attribute8 = st.number_input("Enter the international reputation")
     attribute9 = st.number_input("Enter the long passing")
-    attribute10 = st.number_input("Enter the shot powe_r")
-    attribute11 = st.number_input("Enter the physic")
-    attribute12 = st.number_input("Enter the ball control")
+    attribute10 = st.number_input("Enter the physic")
+    attribute11 = st.number_input("Enter the ball control")
 
     dict = {
         'movement_reactions': attribute1,
@@ -41,8 +40,7 @@ def usersinput():
         'mentality_vision': attribute7,
         'international_reputation' : attribute8,
         'skill_long_passing': attribute9,
-        'power_shot_power': attribute10,
-        'physic': attribute11 ,
+        'physic': attribute11,
         'skill_ball_control' : attribute12
     }
     df = pd.DataFrame(dict, index=[0])

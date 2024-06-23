@@ -24,12 +24,13 @@ st.markdown(
     <style>
     /* Main layout styling */
     .main {
-        background-color: #f5f7fa;
+        background-color: #2c3e50; /* Dark background */
+        color: #ecf0f1; /* Light text for contrast */
         font-family: 'Arial', sans-serif;
     }
     /* Sidebar styling */
     .sidebar .sidebar-content {
-        background-color: #343a40;
+        background-color: #1a252f;
         color: #ffffff;
     }
     .sidebar .sidebar-content h2 {
@@ -40,39 +41,47 @@ st.markdown(
     .stSlider>div>div>div>div,
     .stTextInput>div>input {
         border-radius: 5px;
-        background-color: #e9ecef;
-        color: #495057;
+        background-color: #34495e; /* Slightly lighter than main background */
+        color: #ecf0f1;
     }
     /* Button styling */
     .stButton>button {
-        background-color: #007bff;
+        background-color: #3498db;
         color: white;
         border-radius: 5px;
         border: none;
     }
     .stButton>button:hover {
-        background-color: #0056b3;
+        background-color: #2980b9;
     }
     /* Table styling */
     .css-1d391kg {
         border-radius: 10px;
         overflow: hidden;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     }
     .css-1d391kg table {
         width: 100%;
         text-align: center;
-        background-color: #ffffff;
+        background-color: #34495e;
+        color: #ecf0f1;
+    }
+    .css-1d391kg thead th {
+        background-color: #1a252f;
+        color: #ecf0f1;
+    }
+    .css-1d391kg tbody tr:hover {
+        background-color: #2c3e50;
     }
     /* Prediction output styling */
     .prediction-box {
-        background-color: #007bff;
+        background-color: #3498db;
         color: #ffffff;
         padding: 20px;
         border-radius: 10px;
         text-align: center;
         margin-top: 20px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     }
     .prediction-box h1 {
         margin: 0;
@@ -82,10 +91,10 @@ st.markdown(
         text-align: center;
         padding: 2rem;
         font-size: 14px;
-        color: #868e96;
+        color: #ecf0f1;
     }
     .stSlider>div>div>div>div {
-    background-color: #007bff;
+        background-color: #3498db;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -143,7 +152,7 @@ userinput = usersinput()
 if userinput is not None:
     st.subheader('User Input Parameters')
     st.dataframe(userinput.style.set_table_styles(
-        [{'selector': 'thead th', 'props': [('background-color', '#343a40'), ('color', 'white')]}]
+        [{'selector': 'thead th', 'props': [('background-color', '#1a252f'), ('color', 'white')]}]
     ).highlight_max(axis=0, color='#d9edf7'))
 
     try:

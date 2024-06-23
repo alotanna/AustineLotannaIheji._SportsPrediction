@@ -77,10 +77,6 @@ st.markdown(
     .prediction-box h1 {
         margin: 0;
     }
-    .prediction-box h3 {
-        margin-top: 10px;
-        font-weight: normal;
-    }
     /* Footer styling */
     .footer {
         text-align: center;
@@ -156,15 +152,7 @@ if userinput is not None:
         # Predict the rating using the trained model
         pred = model.predict(scaled_dataframe)
 
-        # Calculate confidence score
-        if hasattr(model, 'predict_proba'):
-            confidence_score = np.max(model.predict_proba(scaled_dataframe)) * 100
-        else:
-            # Placeholder confidence score calculation
-            confidence_score = np.nan  # Update this with actual logic if applicable
-
         st.markdown('<div class="prediction-box"><h1>Predicted Rating: {:.2f}</h1></div>'.format(pred[0]), unsafe_allow_html=True)
-        st.markdown('<div class="prediction-box"><h3>Confidence Score: {:.2f}%</h3></div>'.format(confidence_score), unsafe_allow_html=True)
 
     except Exception as e:
         st.error(f"Error occurred during prediction: {str(e)}")

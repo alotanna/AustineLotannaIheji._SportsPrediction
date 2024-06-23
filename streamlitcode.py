@@ -18,13 +18,13 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for advanced styling
+# Custom CSS
 st.markdown(
     """
     <style>
     /* Main layout styling */
     .main {
-        background-color: #f0f2f6;
+        background-color: #f5f7fa;
         font-family: 'Arial', sans-serif;
     }
     /* Sidebar styling */
@@ -35,9 +35,6 @@ st.markdown(
     .sidebar .sidebar-content h2 {
         color: #ffcc00;
     }
-    .sidebar .sidebar-content hr {
-        border-top: 1px solid #ffcc00;
-    }
     /* Input elements styling */
     .stNumberInput>div>input,
     .stSlider>div>div>div>div,
@@ -46,16 +43,12 @@ st.markdown(
         background-color: #e9ecef;
         color: #495057;
     }
-    .stSlider>div>div>div {
-        background-color: #007bff;
-    }
     /* Button styling */
     .stButton>button {
         background-color: #007bff;
         color: white;
         border-radius: 5px;
         border: none;
-        width: 100%;
     }
     .stButton>button:hover {
         background-color: #0056b3;
@@ -91,6 +84,9 @@ st.markdown(
         font-size: 14px;
         color: #868e96;
     }
+    .stSlider>div>div>div>div {
+    background-color: #007bff;
+    }
     </style>
     """, unsafe_allow_html=True)
 
@@ -101,7 +97,6 @@ st.markdown("### Predict a player's rating using advanced machine learning. Just
 # Sidebar for input
 st.sidebar.header("Enter Player Attributes")
 st.sidebar.markdown("Fill in the details below to get a predicted rating for the player.")
-st.sidebar.markdown("<hr>", unsafe_allow_html=True)
 
 # Input form
 def usersinput():
@@ -110,7 +105,7 @@ def usersinput():
         attribute1 = st.slider("Movement Reactions", min_value=0, max_value=100, value=50, step=1)
         attribute2 = st.slider("Potential", min_value=0, max_value=100, value=50, step=1)
         attribute3 = st.number_input("Wage (EUR)", min_value=0, value=5000, step=1000)
-
+        
         st.markdown("#### Skills and Abilities")
         attribute4 = st.slider("Shot Power", min_value=0, max_value=100, value=50, step=1)
         attribute5 = st.number_input("Value (EUR)", min_value=0, value=1000000, step=100000)
@@ -122,7 +117,7 @@ def usersinput():
         attribute11 = st.slider("Ball Control", min_value=0, max_value=100, value=50, step=1)
 
         submit_button = st.form_submit_button(label='Predict Rating')
-
+        
     if submit_button:
         dict = {
             'movement_reactions': attribute1,
@@ -158,24 +153,6 @@ if userinput is not None:
         pred = model.predict(scaled_dataframe)
 
         st.markdown('<div class="prediction-box"><h1>Predicted Rating: {:.2f}</h1></div>'.format(pred[0]), unsafe_allow_html=True)
-
-        # Plotting predictions against features
-        st.markdown("#### Analysis of Feature Contributions")
-        feature_names = ['Movement Reactions', 'Potential', 'Wage (EUR)', 'Shot Power', 'Value (EUR)', 
-                         'Passing Accuracy', 'Mentality Vision', 'International Reputation', 
-                         'Long Passing', 'Physic', 'Ball Control']
-
-        # Adding a bar chart to show the input values
-        st.bar_chart(userinput.T.rename(columns={0: 'Values'}))
-
-        # Simulating feature importance (placeholder for actual model explanation if available)
-        feature_importance = pd.DataFrame({
-            'Feature': feature_names,
-            'Importance': np.random.rand(len(feature_names))
-        }).sort_values(by='Importance', ascending=False)
-
-        st.markdown("#### Feature Importance")
-        st.write(feature_importance.style.background_gradient(cmap='coolwarm').set_precision(2))
 
     except Exception as e:
         st.error(f"Error occurred during prediction: {str(e)}")

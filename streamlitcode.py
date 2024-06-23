@@ -25,29 +25,29 @@ st.markdown(
     /* Main layout styling */
     .main {
         background-color: #2c3e50; /* Dark background */
-        color: #ecf0f1; /* Light text for contrast */
+        color: #ecf0f1; /* White text */
         font-family: 'Arial', sans-serif;
     }
     /* Sidebar styling */
     .sidebar .sidebar-content {
         background-color: #1a252f;
-        color: #ffffff;
+        color: #ecf0f1; /* White text */
     }
     .sidebar .sidebar-content h2 {
-        color: #ffcc00;
+        color: #ffcc00; /* Accent color */
     }
     /* Input elements styling */
     .stNumberInput>div>input,
     .stSlider>div>div>div>div,
     .stTextInput>div>input {
         border-radius: 5px;
-        background-color: #34495e; /* Slightly lighter than main background */
-        color: #ecf0f1;
+        background-color: #34495e;
+        color: #ecf0f1; /* White text */
     }
     /* Button styling */
     .stButton>button {
         background-color: #3498db;
-        color: white;
+        color: #ecf0f1; /* White text */
         border-radius: 5px;
         border: none;
     }
@@ -64,11 +64,11 @@ st.markdown(
         width: 100%;
         text-align: center;
         background-color: #34495e;
-        color: #ecf0f1;
+        color: #ecf0f1; /* White text */
     }
     .css-1d391kg thead th {
         background-color: #1a252f;
-        color: #ecf0f1;
+        color: #ecf0f1; /* White text */
     }
     .css-1d391kg tbody tr:hover {
         background-color: #2c3e50;
@@ -76,7 +76,7 @@ st.markdown(
     /* Prediction output styling */
     .prediction-box {
         background-color: #3498db;
-        color: #ffffff;
+        color: #ecf0f1; /* White text */
         padding: 20px;
         border-radius: 10px;
         text-align: center;
@@ -91,7 +91,7 @@ st.markdown(
         text-align: center;
         padding: 2rem;
         font-size: 14px;
-        color: #ecf0f1;
+        color: #ecf0f1; /* White text */
     }
     .stSlider>div>div>div>div {
         background-color: #3498db;

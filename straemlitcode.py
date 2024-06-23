@@ -84,6 +84,9 @@ st.markdown(
         font-size: 14px;
         color: #868e96;
     }
+    .stSlider>div>div>div>div {
+    background-color: #007bff;
+    }
     </style>
     """, unsafe_allow_html=True)
 

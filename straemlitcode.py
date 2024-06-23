@@ -40,8 +40,8 @@ def usersinput():
         'mentality_vision': attribute7,
         'international_reputation' : attribute8,
         'skill_long_passing': attribute9,
-        'physic': attribute11,
-        'skill_ball_control' : attribute12
+        'physic': attribute10,
+        'skill_ball_control' : attribute11
     }
     df = pd.DataFrame(dict, index=[0])
     return df

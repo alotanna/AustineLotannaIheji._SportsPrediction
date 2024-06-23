@@ -10,41 +10,70 @@ import pandas as pd
 model = joblib.load("main_final_model.pkl")
 scaler = joblib.load("scaler.pkl")
 
-# Title of the app
-st.title("Player Rating Predictor")
+# Page configuration
+st.set_page_config(
+    page_title="Player Rating Predictor",
+    page_icon="⚽",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
+# Custom CSS
 st.markdown(
     """
     <style>
-    .main { 
-        background-color: #f5f5f5; 
-        color: #333333; 
-        font-family: Arial, sans-serif;
+    .main {
+        background-color: #f8f9fa;
+        color: #212529;
+        font-family: 'Arial', sans-serif;
+    }
+    .sidebar .sidebar-content {
+        background-color: #343a40;
+        color: #ffffff;
+    }
+    .css-17eq0hr a { 
+        color: #ffffff;
+        text-decoration: none;
+    }
+    .stButton>button {
+        background-color: #007bff;
+        color: white;
+    }
+    .stButton>button:hover {
+        background-color: #0056b3;
+        color: white;
+    }
+    .stNumberInput>div>input {
+        background-color: #e9ecef;
+        color: #495057;
+    }
+    .stSlider>div>div>div>div {
+        background-color: #007bff;
     }
     </style>
     """, unsafe_allow_html=True)
 
-st.header("Enter Player Attributes")
+# Header and description
+st.title("⚽ Player Rating Predictor")
+st.markdown("Use this app to predict the rating of a player based on their attributes.")
+
+# Sidebar for input
+st.sidebar.header("Player Attributes Input")
+st.sidebar.markdown("Enter the attributes to get a predicted player rating.")
 
 def usersinput():
-    with st.form(key='user_input_form'):
-        col1, col2, col3 = st.columns(3)
-
-        with col1:
-            attribute1 = st.number_input("Movement Reactions", min_value=0, max_value=100, step=1)
-            attribute2 = st.number_input("Potential", min_value=0, max_value=100, step=1)
-            attribute3 = st.number_input("Wage (EUR)", min_value=0, step=1000)
-            attribute4 = st.number_input("Shot Power", min_value=0, max_value=100, step=1)
-
-        with col2:
-            attribute5 = st.number_input("Value (EUR)", min_value=0, step=1000)
-            attribute6 = st.number_input("Passing Accuracy", min_value=0, max_value=100, step=1)
-            attribute7 = st.number_input("Mentality Vision", min_value=0, max_value=100, step=1)
-            attribute8 = st.number_input("International Reputation", min_value=1, max_value=5, step=1)
-
-        with col3:
-            attribute9 = st.number_input("Long Passing", min_value=0, max_value=100, step=1)
-            attribute10 = st.number_input("Physic", min_value=0, max_value=100, step=1)
-            attribute11 = st.number_input("Ball Control", min_value=0, max_value=100, step=1)
+    with st.sidebar.form(key='user_input_form'):
+        attribute1 = st.slider("Movement Reactions", min_value=0, max_value=100, value=50, step=1)
+        attribute2 = st.slider("Potential", min_value=0, max_value=100, value=50, step=1)
+        attribute3 = st.number_input("Wage (EUR)", min_value=0, value=5000, step=1000)
+        attribute4 = st.slider("Shot Power", min_value=0, max_value=100, value=50, step=1)
+        attribute5 = st.number_input("Value (EUR)", min_value=0, value=1000000, step=100000)
+        attribute6 = st.slider("Passing Accuracy", min_value=0, max_value=100, value=50, step=1)
+        attribute7 = st.slider("Mentality Vision", min_value=0, max_value=100, value=50, step=1)
+        attribute8 = st.slider("International Reputation", min_value=1, max_value=5, value=1, step=1)
+        attribute9 = st.slider("Long Passing", min_value=0, max_value=100, value=50, step=1)
+        attribute10 = st.slider("Physic", min_value=0, max_value=100, value=50, step=1)
+        attribute11 = st.slider("Ball Control", min_value=0, max_value=100, value=50, step=1)
 
         submit_button = st.form_submit_button(label='Predict Rating')
 
@@ -83,7 +112,15 @@ if userinput is not None:
         st.success(f"The predicted rating is: {pred[0]:.2f}")
 
     except Exception as e:
-        st.error(f"Error occurred: {str(e)}")
+        st.error(f"Error occurred during prediction: {str(e)}")
 else:
     st.warning("Please enter the player attributes and click 'Predict Rating'")
 
+# Footer
+st.markdown(
+    """
+    <div style='text-align: center; padding-top: 2rem;'>
+        <hr>
+        <p>&copy; 2024 Player Rating Predictor. All rights reserved.</p>
+    </div>
+    """, unsafe_allow_html=True)

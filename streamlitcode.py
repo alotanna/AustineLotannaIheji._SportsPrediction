@@ -24,7 +24,7 @@ st.markdown(
     <style>
     /* Main layout styling */
     .main {
-        background-color: #f8f9fa; /* Light grey background */
+        background-color: #f5f7fa;
         font-family: 'Arial', sans-serif;
     }
     /* Sidebar styling */
@@ -85,7 +85,7 @@ st.markdown(
         color: #868e96;
     }
     .stSlider>div>div>div>div {
-        background-color: #007bff;
+    background-color: #007bff;
     }
     </style>
     """, unsafe_allow_html=True)
